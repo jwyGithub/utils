@@ -1,0 +1,34 @@
+{
+    "name": "@jiangweiye/utils",
+    "version": "0.0.1",
+    "description": "",
+    "exports": {
+        ".": {
+            "require": "./dist/index.cjs.js",
+            "import": "./dist/index.esm.js"
+        }
+    },
+    "main": "./dist/index.cjs.js",
+    "types": "./dist/types/index.d.ts",
+    "files": [
+        "dist"
+    ],
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "buildOptions": {
+        "entry": "src/index.ts",
+        "name": "utils",
+        "formats": [
+            "esm",
+            "cjs"
+        ]
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "@jiangweiye/utils-is": "workspace:*"
+    }
+}
+

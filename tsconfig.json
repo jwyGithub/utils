@@ -1,0 +1,13 @@
+{
+    "extends": "@jiangweiye/tsconfig/tsconfig.node.json",
+    "compilerOptions": {
+        "importsNotUsedAsValues": "remove",
+        "preserveValueImports": false,
+        "moduleResolution": "Node",
+        "esModuleInterop": true,
+        "baseUrl": "./"
+    },
+    "include": ["packages/**/src", "rollup.config.ts"],
+    "exclude": ["node_modules", "packages/**/node_modules"]
+}
+
