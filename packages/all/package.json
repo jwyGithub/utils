@@ -22,13 +22,15 @@
         "formats": [
             "esm",
             "cjs"
-        ]
+        ],
+        "sort": 2
     },
     "keywords": [],
     "author": "",
     "license": "ISC",
     "dependencies": {
         "@jiangweiye/utils-is": "workspace:*"
-    }
+    },
+    "sideEffects": false
 }
 

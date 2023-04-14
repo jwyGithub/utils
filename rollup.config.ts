@@ -4,6 +4,7 @@ import fs from 'fs';
 import ts from 'rollup-plugin-typescript2';
 import type { ModuleFormat, RollupOptions } from 'rollup';
 import { defineConfig } from 'rollup';
+import rollupNodeResolve from '@rollup/plugin-node-resolve';
 
 interface BuildOptions {
     entry: string;
@@ -50,7 +51,7 @@ const getBuildOption = (target: string): BuildOptions => {
 };
 
 const getBuildConfig = (targets: string[]) => {
-    return targets.reduce<RollupOptions[]>((result, target) => {
+    return targets.reverse().reduce<RollupOptions[]>((result, target) => {
         const buildOptions = getBuildOption(target);
         const { root, dist, types, include } = packageDirs(target);
         result.push({
@@ -58,9 +59,11 @@ const getBuildConfig = (targets: string[]) => {
             output: buildOptions.formats.map(format => ({
                 format,
                 exports: 'auto',
+                name: buildOptions.name,
                 file: `${path.join(dist, `index.${format}.js`)}`
             })),
             plugins: [
+                rollupNodeResolve(),
                 ts({
                     tsconfig: path.resolve(root, 'tsconfig.json'),
                     tsconfigOverride: {

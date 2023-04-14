@@ -22,10 +22,12 @@
         "formats": [
             "esm",
             "cjs"
-        ]
+        ],
+        "sort": 1
     },
     "keywords": [],
     "author": "",
-    "license": "ISC"
+    "license": "ISC",
+    "sideEffects": false
 }
 
